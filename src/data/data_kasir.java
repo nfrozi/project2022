@@ -64,4 +64,32 @@ public class data_kasir {
             System.out.println("data dengan NIP "+index +" berhasil dihapus");
         }
     }
+    private int cek_login(int nip, String pass)
+    {
+        for (int i=0;i<this.data_kasir.size();i++)
+        {
+            if (nip==this.data_kasir.get(i).getNip())
+            {
+                if (pass.equals(this.data_kasir.get(i).getPass()))
+                {
+                    return this.data_kasir.get(i).getNip();
+                }
+            }
+        }
+        return -1;
+    }
+
+    public int login(int nip, String pass)
+    {
+        int nipKasir = this.cek_login(nip,pass);
+        if (nipKasir == -1)
+        {
+            System.out.println("NIP "+nip +" login gagal");
+        }
+        else
+        {
+            System.out.println("NIP "+nip +" login berhasil");
+        }
+        return nipKasir;
+    }
 }

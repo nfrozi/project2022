@@ -27,4 +27,8 @@ public class entity_kasir {
     public void setPass(String pass) {
         this.pass = pass;
     }
+
+    public String getPass() {
+        return pass;
+    }
 }
