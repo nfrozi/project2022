@@ -11,13 +11,13 @@ public class Main {
         database_kasir.read(); // viev database kasir
 
         // cek method update
-        database_kasir.update_pass(111,"111");
-        database_kasir.update_pass(155,"111");
+        database_kasir.update_pass(111,"111"); //pengujian salah
+        database_kasir.update_pass(155,"111"); //pengujian benar
         database_kasir.read();
 
         //cek method delete
-        database_kasir.delete(111);
-        database_kasir.delete(155);
+        database_kasir.delete(111); //pengujian salah
+        database_kasir.delete(155); //pengujian benar
         database_kasir.read();
     }
 }
