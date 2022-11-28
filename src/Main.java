@@ -1,8 +1,9 @@
 import data.DataKasir;
-import entity.Auth;
-import entity.Kasir;
-import entity.UnknownKasir;
+import entity.*;
+
+import java.sql.Array;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Main {
 
@@ -80,19 +81,72 @@ public class Main {
         }
     }
 
-    public static void main(String[] args){
-        System.out.println("Project PBO 2022\n");
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
 
-        Main app = new Main();
-        app.seedDatabase();
-        app.readDatabase();
+        ArrayList<Pekerja> pekerjaList = new ArrayList<>();
 
-        app.updatePassTest();
-        app.readDatabase();
+//        Kasir kasir = new Kasir("Agus", 111, "111");
+//        Manajer mgr = new Manajer("Budi", 123, "123");
 
-        app.deleteKasirTest();
-        app.readDatabase();
+        String lanjut;
+        int pilihan;
 
-        app.loginTest();
+        do {
+            System.out.println("Entri pekerjaList...");
+            System.out.println("Pilih: ");
+            System.out.println("1. Manajer");
+            System.out.println("2. Kasir");
+
+            System.out.println("Pilihan Anda: ");
+            pilihan = scanner.nextInt();
+            String nama;
+            int nip;
+            String pass;
+
+            System.out.print("Masukkan nama = ");
+            nama = scanner.next();
+            System.out.print("Masukkan NIP = ");
+            nip = scanner.nextInt();
+            System.out.print("Masukkan pass = ");
+            pass = scanner.next();
+
+            if (pilihan == 1) {
+                pekerjaList.add(new Manajer(nama, nip, pass));
+            }
+            else {
+                pekerjaList.add(new Kasir(nama, nip, pass));
+            }
+
+            System.out.print("Lanjut [Y/T]: ");
+            lanjut = scanner.next();
+
+        } while (lanjut.equals("Y"));
+
+        for (Pekerja pekerja : pekerjaList) {
+//            if (pekerja instanceof Kasir) {
+//                System.out.println("Mencetak kasir");
+//            } else if (pekerja instanceof Manajer) {
+//                System.out.println("Mencetak Manajer");
+//            }
+            pekerja.cetak();
+        }
+
+//        kasir.cetak();
+//        mgr.cetak();
+
+//        System.out.println("Project PBO 2022\n");
+//
+//        Main app = new Main();
+//        app.seedDatabase();
+//        app.readDatabase();
+//
+//        app.updatePassTest();
+//        app.readDatabase();
+//
+//        app.deleteKasirTest();
+//        app.readDatabase();
+//
+//        app.loginTest();
     }
 }
