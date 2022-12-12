@@ -1,17 +1,17 @@
 package entity;
 
-import data.DataKasir;
+import data.PekerjaRepository;
 
 public class Auth {
 
-    private DataKasir users;
+    private PekerjaRepository users;
 
-    public Auth(DataKasir users) {
+    public Auth(PekerjaRepository users) {
         this.users = users;
     }
 
     public Kasir login(Kasir user) {
-        for (Kasir iUser : users.getAll()) {
+        for (Pekerja iUser : users.getAll()) {
             if (iUser.equals(user, true)) {
                 return user;
             }

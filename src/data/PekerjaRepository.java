@@ -1,25 +1,35 @@
 package data;
 import entity.Kasir;
+import entity.Pekerja;
 
 import java.util.ArrayList;
 
-public class DataKasir {
+public class PekerjaRepository {
 
     public final static int DATA_NOT_FOUND = -1;
-    private final ArrayList<Kasir> data;
+    private final ArrayList<Pekerja> data;
 
-    public DataKasir()
+    public PekerjaRepository()
     {
-        data = new ArrayList<Kasir>();
+        data = new ArrayList<>();
     }
 
-    public ArrayList<Kasir> getAll() {
+    public ArrayList<Pekerja> getAll() {
         return data;
+    }
+
+    public Pekerja getSingle(int indeks) {
+        return data.get(indeks);
     }
 
     public void create(String nama, int nip, String pass)
     {
         this.data.add(new Kasir(nama, nip, pass));
+    }
+
+    public void create(Pekerja pekerja)
+    {
+        this.data.add(pekerja);
     }
 
     public void read()
